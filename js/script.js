@@ -28,7 +28,20 @@ const slides = [
 
 console.log(slides);
 
-
+new Vue({
+    el: '#app',
+    data: {
+        array: slides,
+    },
+    methods: {
+        prevImage: function(){
+            slides.image--
+        },
+        nextImage: function(){
+            slides.image++
+        }
+    },
+})
 
 
 
