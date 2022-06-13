@@ -31,16 +31,21 @@ new Vue({
     el: '#app',
     data: {
         arraySlides: slides,
-        imageIndex: 0,
+        currentIndex: 0,
     },
     methods: {
-        prevImage: function(){
-            this.imageIndex--
-            console.log(this.imageIndex)
-        },
-        nextImage: function(){
-            this.imageIndex++
-            console.log(this.imageIndex)
+        changeImg(direction){
+            if (direction === 'next') {
+                this.currentIndex++;
+                if (this.currentIndex >= this.arraySlides.length) {
+                    this.currentIndex = 0;
+                }
+            } else if (direction === 'prev') {
+                this.currentIndex--;
+                if (this.currentIndex < 0) {
+                    this.currentIndex = this.arraySlides.length - 1;
+                }
+            }
         },
     },
 })
